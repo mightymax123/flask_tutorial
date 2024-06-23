@@ -9,6 +9,7 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 
 ############### sql database and models ##################
 
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -18,7 +19,6 @@ db = SQLAlchemy(app)
 Migrate(app, db)
 
 ############### sql models here #################
-
 
 
 class Puppy(db.Model):
@@ -54,8 +54,8 @@ class Owner(db.Model):
     def __repr__(self) :
         return f'owner name: {self.name}'
 
-
 ############# create the view functions and forms ################
+
 
 @app.route('/')
 def index():
